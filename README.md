@@ -36,4 +36,17 @@ Ruby Active Record exercise for POO1 course.
   rake db:migrate
   ```
 
-  
+
+
+- Run seeds
+
+  ```bash
+  rake db:seed
+  ```
+
+  If you seeding again (after a reset or whatever) you can use:
+
+  ```bash
+  rake db:seed:replant
+  ```
+
