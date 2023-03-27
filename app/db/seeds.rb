@@ -32,3 +32,19 @@ Order.create!([
   {client: Client.second, order_items: [OrderItem.second]},
   {client: Client.third, order_items: [OrderItem.third, OrderItem.fourth]},
 ])
+
+Product.create!([
+  {name: "Sport Chewing-Gums", description: "Sport Chewing-Gums", price: 0.1, category: sports},
+  {name: "Wall Nails", description: "Wall Nails", price: 0.2, category: house},
+])
+
+OrderItem.create!([
+  {product: Product.last(2).first, quantity: 100},
+  {product: Product.first, quantity: 200},
+  {product: Product.last, quantity: 50},
+])
+
+Order.create!([
+  {client: Client.first, order_items: [OrderItem.last]},
+  {client: Client.first, order_items: [OrderItem.last(3).first]},
+])
