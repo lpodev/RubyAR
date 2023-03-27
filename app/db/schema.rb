@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_092429) do
 
   create_table "order_items", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "quantity"
-    t.decimal "item_price", precision: 10
+    t.decimal "item_price", precision: 8, scale: 2
     t.bigint "order_id"
     t.bigint "product_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_092429) do
 
   create_table "products", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name"
-    t.decimal "price", precision: 10
+    t.decimal "price", precision: 8, scale: 2
     t.text "description"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
