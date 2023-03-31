@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_27_092429) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_31_080619) do
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_092429) do
   create_table "clients", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
+    t.string "type"
+    t.string "name"
   end
 
   create_table "order_items", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|

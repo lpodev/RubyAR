@@ -14,9 +14,9 @@ Product.create!([
 ])
 
 Client.create!([
-  {firstname: "Luis Pedro", lastname: "Pinheiro"},
-  {firstname: "Victoria", lastname: "Montabonne"},
-  {firstname: "Thomas", lastname: "Le Train"},
+  {firstname: "Luis Pedro", lastname: "Pinheiro", type: "Individual"},
+  {firstname: "Victoria", lastname: "Montabonne", type: "Individual"},
+  {firstname: "Thomas", lastname: "Le Train", type: "Individual"},
 ])
 
 OrderItem.create!([
@@ -47,4 +47,10 @@ OrderItem.create!([
 Order.create!([
   {client: Client.first, order_items: [OrderItem.last]},
   {client: Client.first, order_items: [OrderItem.last(3).first]},
+])
+
+Client.create!([
+  {name: "Microsoft", type: "Company"},
+  {name: "Apple", type: "Company"},
+  {name: "Google", type: "Company"},
 ])
