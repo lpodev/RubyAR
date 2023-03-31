@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :category
+  belongs_to :supplier
   has_many :order_items
 
   scope :cheap, -> { where('price <= ?', 0.2) }

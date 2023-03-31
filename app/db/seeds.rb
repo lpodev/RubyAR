@@ -4,13 +4,22 @@ sports = Category.create!(name: "Sports", description: "Sports")
 electronics = Category.create!(name: "Electronics", description: "Electronics")
 house = Category.create!(name: "House", description: "House")
 
+Supplier.create!([
+  {name: "Nike"},
+  {name: "Adidas"},
+  {name: "Sony"},
+  {name: "Samsung"},
+  {name: "IKEA"},
+  {name: "Leroy Merlin"},
+])
+
 Product.create!([
-  {name: "Basketball", description: "Basketball", price: 19.99, category: sports},
-  {name: "Football", description: "Football", price: 29.99, category: sports},
-  {name: "TV", description: "TV", price: 39.99, category: electronics},
-  {name: "Radio", description: "Radio", price: 49.99, category: electronics},
-  {name: "Lamp", description: "Lamp", price: 59.99, category: house},
-  {name: "Chair", description: "Chair", price: 69.99, category: house},
+  {name: "Basketball", description: "Basketball", price: 19.99, category: sports, supplier: Supplier.first},
+  {name: "Football", description: "Football", price: 29.99, category: sports, supplier: Supplier.second},
+  {name: "TV", description: "TV", price: 39.99, category: electronics, supplier: Supplier.third},
+  {name: "Radio", description: "Radio", price: 49.99, category: electronics, supplier: Supplier.fourth},
+  {name: "Lamp", description: "Lamp", price: 59.99, category: house, supplier: Supplier.fifth},
+  {name: "Chair", description: "Chair", price: 69.99, category: house, supplier: Supplier.fifth},
 ])
 
 Client.create!([
@@ -34,8 +43,8 @@ Order.create!([
 ])
 
 Product.create!([
-  {name: "Sport Chewing-Gums", description: "Sport Chewing-Gums", price: 0.1, category: sports},
-  {name: "Wall Nails", description: "Wall Nails", price: 0.2, category: house},
+  {name: "Sport Chewing-Gums", description: "Sport Chewing-Gums", price: 0.1, category: sports, supplier: Supplier.first},
+  {name: "Wall Nails", description: "Wall Nails", price: 0.2, category: house, supplier: Supplier.fifth},
 ])
 
 OrderItem.create!([
