@@ -66,3 +66,14 @@ Client.create!([
 
 # Créer une catégorie vide
 Category.create(name: "Catégorie Vide")
+
+OrderItem.create(product: Product.first, quantity: 1)
+
+# Créer orders for Company
+Order.create!([
+  {client: Client.last, order_items: [OrderItem.first]},
+  {client: Client.last, order_items: [OrderItem.second]},
+  {client: Client.last(2).first, order_items: [OrderItem.third, OrderItem.fourth]},
+  {client: Client.last(2).first, order_items: [OrderItem.last]},
+])
+
