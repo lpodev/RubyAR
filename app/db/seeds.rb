@@ -77,3 +77,8 @@ Order.create!([
   {client: Client.last(2).first, order_items: [OrderItem.last]},
 ])
 
+# Créer des produits plus chers que 100
+Product.create!([
+  {name: "Super Expensive Product", description: "Super Expensive Product", price: 200, category: sports, supplier: Supplier.first},
+  {name: "Expensive Product", description: "Expensive Product", price: 150, category: house, supplier: Supplier.fifth},
+])
