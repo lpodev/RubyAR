@@ -6,4 +6,8 @@ class Client < ActiveRecord::Base
   def to_s
     "#{firstname} #{lastname}"
   end
+
+  def self.without_orders
+    where.missing(:orders)
+  end
 end

@@ -1,20 +1,21 @@
 require_relative 'connection'
 require_relative 'models'
 
-company = Company.first
-company.authored_comments.create!(body: 'This is a comment', target: Product.first)
-Supplier.first.comments.create!(body: 'This is a comment', author: company)
+# Afficher la commande la plus chère
+puts "La commande la plus chère est :"
+puts Order.most_expensive
 
-angry = Individual.first
-angry.authored_comments.create!(body: 'Ne pas acheter!', target: Product.first)
-Product.first.comments.create!(body: 'Ne pas acheter!', author: angry)
+# Afficher les catégories qui n'ont jamais été commandées
+puts "Les catégories qui n'ont jamais été commandées sont :"
+puts Category.unordered
 
-puts 'Comments de #{company}:'
-company.authored_comments.each do |comment|
-  puts comment.body
-end
+# Afficher les clients qui n'ont jamais commandé
+puts "Les clients qui n'ont jamais commandé sont :"
+puts Client.without_orders
 
-puts 'Commentaires de #{angry}:'
-angry.authored_comments.each do |comment|
-  puts comment.body
-end
+puts Client.without_orders.destroy_all
+puts "Doit être vide: #{Client.without_orders.all.join}"
+
+# Déterminer s'il y a des commandes ou non entre deux dates données
+puts "Il y a des commandes entre aujourd'hui et demain:"
+puts Order.between(Date.today, Date.today + 1).any?

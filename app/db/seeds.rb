@@ -63,3 +63,6 @@ Client.create!([
   {name: "Apple", type: "Company"},
   {name: "Google", type: "Company"},
 ])
+
+# Créer une catégorie vide
+Category.create(name: "Catégorie Vide")
